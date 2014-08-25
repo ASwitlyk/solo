@@ -13,6 +13,12 @@ mongoose.connect('mongodb://localhost/starz'); // conntect to mongo db named sta
 // 	res.send('hello world');
 // })
 app.use(express.static(__dirname + '/client'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use('/app', express.static(__dirname + '/client/app'));
+app.use('/style', express.static(__dirname + '/client/stlye'));
+app.use('/img', express.static(__dirname + '/client/img'));
+
+
 
 app.listen(8000);
 console.log('Express server started');
