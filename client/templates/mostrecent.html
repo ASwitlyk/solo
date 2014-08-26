@@ -1,8 +1,8 @@
 <!-- Two pictures per row -->
 <h1>Recent</h1>
-<div class="row" ng-repeat="src in imageLocations" ng-if="$index % 2 != 0">
+<div class="row" ng-init="getRecent()" ng-repeat="src in imageLocations" ng-if="$index % 2 != 0">
 	<div ng-repeat="src2 in imageLocations.slice($index-1, $index+1)">
 		
-		<div class="col-md-6"><img src="{{src2}}" /></div>
+		<div class="col-md-6"><img ng-src="{{src2}}" /></div>
 	</div>
 </div>

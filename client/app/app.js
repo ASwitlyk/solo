@@ -38,14 +38,26 @@ selfies.controller('selfiesCtrl', function($scope) {
 	$scope.test = 'hello world!';
 });
 
-selfies.controller('selfiesRecentCtrl', function($scope) {
+selfies.controller('selfiesRecentCtrl', function($scope, $http) {
 
 	$scope.imageLocations = ["./testphotos/img1.jpeg",
 							"./testphotos/img2.jpeg",
 							"./testphotos/img3.jpeg",
 							"./testphotos/img4.jpeg",
 							"./testphotos/img5.jpeg",
-							"./testphotos/img6.jpg"]
+							"./testphotos/img6.jpg"];
+	// $scope.imageLocations = [];
+	
+	$scope.getRecent = function() {
+		$http({method: 'GET', url: '/getRecent'}).
+		   success(function(data, status) {
+			console.log('data is: ', data);
+			console.log('status is: ', status);
+		   }).
+		   error(function(data, status, headers, config) {
+		   		console.log('error!!');
+		   });
+	};
 
 });
 

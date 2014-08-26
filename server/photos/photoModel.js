@@ -1,7 +1,7 @@
 // will define Mongoose models properties and methods here and export it.
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/selfiesStars'); // conntect to mongo db named starz
+mongoose.connect('mongodb://localhost/selfiesStars'); // connect to mongo db named starz
 
 var db = mongoose.connection;
 db.on('error', function() {
@@ -14,6 +14,7 @@ db.once('open', function() {
 var PhotoSchema = mongoose.Schema( {
 	fileName: String,
 	starName: String,
+	uploadedOn: Date
 });
 // Need to change this so use modules instead 
 module.exports = Photo = mongoose.model('Photo', PhotoSchema);

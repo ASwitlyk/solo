@@ -24,7 +24,21 @@ require('./config/middleware.js')(app, express);
 
 
 /*********  NEED TO MODULARIZE THIS   ****************/
-app.post('*', function(req, res) {
+app.get('/getRecent', function(req, res) {
+	Photo.find(function(err, photos){
+		if(err) {
+			console.log('nothing found');
+		} else {
+			console.log(photos);
+			res.send(photos);
+		}
+	});
+	console.log('get request!!');
+
+	// res.json({test: 'test'});
+});
+
+app.post('/photoUpload', function(req, res) {
 	// console.log('req is: ', req);
 	var filesFromForm = [];
 	var fieldsFromForm = [];
