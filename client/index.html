@@ -52,27 +52,24 @@
   <!-- Main Content -->
   <div class="container">
 
-  	<div class="row">
+  	<div class="row"> <!-- Main content row -->
   	<!-- Trending sidebar -->
   		<div class="col-md-3 hidden-xs hidden-sm">
   			<h1>Trending</h1>
   		</div>
-  		<div class="col-md-9 col-xs-12">
-  			<!-- Two pictures per row -->
-  			<div class="row">
-  				<div class="col-md-6">Pic 1</div>
-  				<div class="col-md-6">Pic 2</div>  				
-  			</div>
-  			
-  		</div>
-  			
-  	</div>
+      
+      <!-- <div class="view-animate-container"> -->
+        
+        <div class="col-md-9 col-xs-12" ng-view>
+        
+          
+        </div>
 
-  	
-  <h1 ng-controller="selfiesCtrl">{{test}}</h1>
-  <div ng-view></div>
+      <!-- </div> -->
+    <h1 ng-controller="selfiesCtrl">{{test}}</h1>
+        
+    </div> <!-- End of main row -->
 
-  <a href="login">Login</a>
 
 
   </div> <!-- End of Main container -->

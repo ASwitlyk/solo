@@ -16,11 +16,11 @@ var selfies = angular.module('selfies', ['ngRoute'])
 		    })
 		    .when('/MostLiked', {
 		    	templateUrl: 'templates/mostliked.html',
-		    	controller: 'selfiesCtrl'
+		    	controller: 'selfiesRecentCtrl'
 		    })
 		    .when('/MostRecent', {
 		    	templateUrl: 'templates/mostrecent.html',
-		    	controller: 'selfiesCtrl'
+		    	controller: 'selfiesRecentCtrl'
 		    })
 		    .when('/useradmin', {
 		    	templateUrl: 'template/useradmin.html',
@@ -36,4 +36,20 @@ var selfies = angular.module('selfies', ['ngRoute'])
 
 selfies.controller('selfiesCtrl', function($scope) {
 	$scope.test = 'hello world!';
-})
+});
+
+selfies.controller('selfiesRecentCtrl', function($scope) {
+
+	$scope.imageLocations = ["./testphotos/img1.jpeg",
+							"./testphotos/img2.jpeg",
+							"./testphotos/img3.jpeg",
+							"./testphotos/img4.jpeg",
+							"./testphotos/img5.jpeg",
+							"./testphotos/img6.jpg"]
+
+});
+
+selfies.controller('selfiesMostLikedCtrl', function($scope) {
+
+});
+
