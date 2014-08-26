@@ -1,5 +1,5 @@
-var express = require('express'),
-	mongoose = require('mongoose');
+var express = require('express');
+	// mongoose = require('mongoose');
 	// fs = require('fs'),
 	// sys = require('sys');
 
@@ -13,9 +13,11 @@ var qt = require('quickthumb');
 
 var app = express();
 
+var photoModel = require('./photos/photoModel')
+
 // app.use(bodyParser({defer: true}));
 
-mongoose.connect('mongodb://localhost/starz'); // conntect to mongo db named starz
+// mongoose.connect('mongodb://localhost/starz'); // conntect to mongo db named starz
 
 // configure server with all the middleware and routing
 require('./config/middleware.js')(app, express);
@@ -41,7 +43,18 @@ app.post('*', function(req, res) {
 		fieldsFromForm.push(fields);
 	});
 
-	form.on('end', function(file) {
+	form.on('end', function() {
+		// create or update database document
+		var photo = new photoModel({fileName: filesFromForm[0].thefile.name,
+									 starName: fieldsFromForm[0].starname});
+		// Save database document to mongo
+		photo.save(function(err, photo) {
+			if(!err) {
+				console.log('saved to database');
+			} else {
+				console.log('err with database save is: ', err);
+			}
+		})
 		console.log('fileFromForm is: ', filesFromForm[0].thefile.name);
 		console.log('fieldsFromForm is: ', fieldsFromForm[0].starname);
 	});
