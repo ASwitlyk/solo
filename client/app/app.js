@@ -40,19 +40,18 @@ selfies.controller('selfiesCtrl', function($scope) {
 
 selfies.controller('selfiesRecentCtrl', function($scope, $http) {
 
-	$scope.imageLocations = ["./testphotos/img1.jpeg",
-							"./testphotos/img2.jpeg",
-							"./testphotos/img3.jpeg",
-							"./testphotos/img4.jpeg",
-							"./testphotos/img5.jpeg",
-							"./testphotos/img6.jpg"];
+	$scope.imageLocations = [];
 	// $scope.imageLocations = [];
-	
+
 	$scope.getRecent = function() {
 		$http({method: 'GET', url: '/getRecent'}).
 		   success(function(data, status) {
+		   	data.forEach(function(value, index, array) {
+		   		$scope.imageLocations.push('/photos/' + value.fileName);
+		   	});
 			console.log('data is: ', data);
 			console.log('status is: ', status);
+			console.log('imageLocations is: ',$scope.imageLocations)
 		   }).
 		   error(function(data, status, headers, config) {
 		   		console.log('error!!');
@@ -62,6 +61,11 @@ selfies.controller('selfiesRecentCtrl', function($scope, $http) {
 });
 
 selfies.controller('selfiesMostLikedCtrl', function($scope) {
+
+	$scope.mostLiked = function() {
+
+
+	};
 
 });
 

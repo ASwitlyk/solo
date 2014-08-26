@@ -8,6 +8,9 @@ module.exports = function(app, express) {
 	app.use('/app', express.static(__dirname + '/../../client/app'));
 	app.use('/style', express.static(__dirname + '/../../client/stlye'));
 	app.use('/img', express.static(__dirname + '/../../client/img'));
+	app.use('/photos', express.static(__dirname + '/../upload'));
+
+	console.log('__dirname is: ', __dirname);
 
 	// app.use(bodyParser.json());
 	var router = express.Router();
