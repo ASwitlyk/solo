@@ -31,9 +31,11 @@
   		<!-- Navbar options -->
   		<div class="navbar-collapse collapse">
   			<ul class="nav navbar-nav">
-  				<li class="active"><a href="#">Option 1</a></li>
-  				<li><a href="#">Option 2</a></li>
-  				<li><a href="#">Option 3</a></li>
+  				<li class="active"><a href="/">Home</a></li>
+  				<li><a href="login">Login</a></li>
+  				<li><a href="upload">Upload</a></li>
+  				<li><a href="MostLiked">Liked</a></li>
+  				<li><a href="MostRecent">Recent</a></li>
   			</ul>
 
   		<!-- search box -->
@@ -42,7 +44,6 @@
   				<input type="text" placeholder="Search" class="form-control" />
   			</div>
   		</form>
-
   			
   		</div>
   	</div>
@@ -69,12 +70,13 @@
 
   	
   <h1 ng-controller="selfiesCtrl">{{test}}</h1>
+  <div ng-view></div>
+
+  <a href="login">Login</a>
+
 
   </div> <!-- End of Main container -->
   	
-
-
-
 
   	<!-- JQuery -->
   	<script src="/bower_components/jquery/dist/jquery.js"></script>
