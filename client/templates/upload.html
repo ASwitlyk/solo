@@ -1,7 +1,11 @@
 <form role="form" method="post" action="/photoUpload" enctype="multipart/form-data">
 	<div class="form-group">
 	  <label for="imgUpload">Upload your image</label>
-	  <input type="file" class="form-control" id="ingUpload" />	
+	  <input type="file" name="thefile" class="form-control" id="imgUpload" />	
+	</div>
+	<div class="form-group">
+	  <label for="starName">Star's Name</label>
+	  <input type="text" name="starname" class="form-control" id="starName" />	
 	</div>
 	<div class="form-group">
 		<button type="submit" class="btn btn-default">Upload</button>

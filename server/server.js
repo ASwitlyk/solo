@@ -8,9 +8,12 @@ var util = require('util');
 // var util = require('util');
 var fs = require('fs');
 var qt = require('quickthumb');
+// var bodyParser = require('body-parser');
 
 
 var app = express();
+
+// app.use(bodyParser({defer: true}));
 
 mongoose.connect('mongodb://localhost/starz'); // conntect to mongo db named starz
 
@@ -20,24 +23,29 @@ require('./config/middleware.js')(app, express);
 
 /*********  NEED TO MODULARIZE THIS   ****************/
 app.post('*', function(req, res) {
+	// console.log('req is: ', req);
+	var filesFromForm = [];
+	var fieldsFromForm = [];
 	console.log("POST!!");
 	var form = new formidable.IncomingForm();
+	// var form = req.form; // its a formidable form object
+	console.log('form is :', form);
+	form.uploadDir = __dirname + '/upload';
 
-	console.log('form is: ', form);
-	form.parse(req, function(err, fields, files) {
-
+	form.on('fileBegin', function(name, file) {
+		file.path = form.uploadDir + "/" + file.name;
 	});
 
-	form.on('end', function(fields, files) {
-		// var temp_path = this.openedFiles[0].path;
-		// var file_name = this.openedFiles[0].name;
-		// var new_location = 'uploads/';
-
-		// fs.copy(temp_path, files, function(err) {
-		// 	console.log('error was', err);
-		// })
-
+	form.parse(req, function(err, fields, file) {
+		filesFromForm.push(file);
+		fieldsFromForm.push(fields);
 	});
+
+	form.on('end', function(file) {
+		console.log('fileFromForm is: ', filesFromForm[0].thefile.name);
+		console.log('fieldsFromForm is: ', fieldsFromForm[0].starname);
+	});
+
 });
 
 
