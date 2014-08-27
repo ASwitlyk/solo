@@ -1,7 +1,7 @@
 // will define Mongoose models properties and methods here and export it.
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/selfiesStars3'); // connect to mongo db named starz
+mongoose.connect('mongodb://localhost/selfiesStars7'); // connect to mongo db named starz
 
 var db = mongoose.connection;
 db.on('error', function() {
