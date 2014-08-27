@@ -19,22 +19,22 @@
   	<div class="container">
 
   		<div class="navbar-header">
-  			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+  			<button type="button" class="navbar-toggle" data-toggle="collapse" 
+        data-target=".navbar-collapse">
   				<span class="sr-only">Toggle navigation</span>
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<a class="navbar-brand" href="#">Name Star</a>
+  			<a class="navbar-brand" href="#"><span class="center_logo">SELFIES</span><span class="glyphicon glyphicon-star-empty center_star"></span></a>
   		</div>
 
   		<!-- Navbar options -->
-  		<div class="navbar-collapse collapse">
+  		<div class="collapse navbar-collapse">
   			<ul class="nav navbar-nav">
-  				<li class="active"><a href="/">Home</a></li>
+          <li><a href="home">Home</a></li>
   				<li><a href="login">Login</a></li>
   				<li><a href="upload">Upload</a></li>
-  				<li><a href="MostLiked">Liked</a></li>
   				<li><a href="MostRecent">Recent</a></li>
   			</ul>
 
@@ -50,7 +50,7 @@
   </div>
 
   <!-- Main Content -->
-  <div class="container">
+  <div class="container" ng-view>
 
   	<div class="row"> <!-- Main content row -->
   	<!-- Trending sidebar -->
@@ -60,7 +60,7 @@
 
       <!-- <div class="view-animate-container"> -->
         
-        <div class="col-md-9 col-xs-12 view-animate" ng-view>
+        <div class="col-md-9 col-xs-12 view-animate">
         
           
         </div>
@@ -73,9 +73,11 @@
   	
 
   	<!-- JQuery -->
-  	<script src="/bower_components/jquery/dist/jquery.js"></script>
-  	<!-- All bootstrap plugins -->
-  	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    
+    <!-- All bootstrap plugins -->
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
   	<!-- Angular -->
   	<script src="/bower_components/angular/angular.js"></script>
   	<script src="/bower_components/angular-route/angular-route.js"></script>

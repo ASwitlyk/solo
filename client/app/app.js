@@ -43,11 +43,17 @@ selfies.controller('selfiesRecentCtrl', function($scope, $http) {
 	$scope.imageLocations = [];
 	// $scope.imageLocations = [];
 
+	$scope.trendingNames = [];
+
 	$scope.getRecent = function() {
 		$http({method: 'GET', url: '/getRecent'}).
 		   success(function(data, status) {
+		   	$scope.imageLocations = [];
+		   	$scope.trendingNames = [];
+
 		   	data.forEach(function(value, index, array) {
 		   		$scope.imageLocations.push('/photos/' + value.fileName);
+		   		$scope.trendingNames.push(value.starName)
 		   	});
 			console.log('data is: ', data);
 			console.log('status is: ', status);
@@ -69,3 +75,11 @@ selfies.controller('selfiesMostLikedCtrl', function($scope) {
 
 });
 
+selfies.controller('loginCtrl', function($scope) {
+
+	$scope.mostLiked = function() {
+
+
+	};
+
+});

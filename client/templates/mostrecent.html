@@ -1,8 +1,29 @@
+
+
+
+<div class="row"> <!-- Main content row -->
+  	<!-- Trending sidebar -->
+  	<div class="col-md-3 hidden-xs hidden-sm">
+      <h1>Trending</h1>
+      <div ng-repeat="name in trendingNames">
+  	  <table class="table table-hover">
+  		<tr><td>{{name}}</td></tr>
+	  </table>
+	  </div>
+  	</div>
+
+      <!-- <div class="view-animate-container"> -->
+        
+    <div class="col-md-9 col-xs-12 view-animate">
+        
+
 <!-- Two pictures per row -->
 <h1 ng-init="getRecent()">Recent</h1>
 <div class="row" ng-repeat="src in imageLocations" ng-if="$index % 2 != 0">
 	<div ng-repeat="src2 in imageLocations.slice($index-1, $index+1)">
 		
-		<div class="col-md-6"><img ng-src="{{src2}}" /></div>
+		<div class="col-md-6 pics"><img class="img-rounded" style="max-width: 300px" ng-src="{{src2}}" /></div>
 	</div>
 </div>
+          
+        </div>

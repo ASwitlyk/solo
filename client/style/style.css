@@ -1,6 +1,49 @@
 /* styles.css
 */
 
+
+/***** Google Fonts  ***/
+@import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+.main_container {
+
+	min-height: 2500px;
+
+}
+
+.pics {
+	margin-top: 20px;
+}
+
+.main_container::after {
+  content: "";
+  background: url(../img/background.jpeg);
+  background-repeat: repeat;
+  opacity: 0.25;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+
+.center_logo {
+	font-family: 'Gloria Hallelujah', cursive;
+	color: red;
+	position: relative;
+	top: -25px;
+	font-size: 1.5em;
+}
+
+.center_star {
+	font-size: 3em;
+	color: #D2A2A2;
+	position: relative;
+	top: -10px;
+}
+
 .navbar-brand {
 	position: absolute;
 	width: 100%;
